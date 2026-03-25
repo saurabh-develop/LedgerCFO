@@ -32,12 +32,16 @@ export default function App() {
   useEffect(() => {
     if (!selected) return;
 
-    getTasks(selected._id, {
-      search: debouncedSearch,
-      status,
-      category,
-      sort,
-    }).then((res) => setTasks(res.data));
+    const params = {};
+
+    if (debouncedSearch) params.search = debouncedSearch;
+    if (status) params.status = status;
+    if (category) params.category = category;
+    if (sort) params.sort = sort;
+
+    console.log("FILTER PARAMS:", params);
+
+    getTasks(selected._id, params).then((res) => setTasks(res.data));
   }, [selected, debouncedSearch, status, category, sort]);
 
   const handleAdd = async (data) => {
