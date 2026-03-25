@@ -18,6 +18,7 @@ export default function TaskFilters({
       />
 
       <select
+        value={status}
         onChange={(e) => setStatus(e.target.value)}
         className="border p-2 rounded"
       >
@@ -27,6 +28,7 @@ export default function TaskFilters({
       </select>
 
       <select
+        value={category}
         onChange={(e) => setCategory(e.target.value)}
         className="border p-2 rounded"
       >
@@ -36,6 +38,7 @@ export default function TaskFilters({
       </select>
 
       <select
+        value={sort}
         onChange={(e) => setSort(e.target.value)}
         className="border p-2 rounded"
       >

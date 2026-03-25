@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:8001/api",
+  baseURL: "http://localhost:8001/api/v1",
 });
 
 export const getClients = () => API.get("/clients");
@@ -12,3 +12,5 @@ export const getTasks = (clientId, params = {}) =>
 export const createTask = (data) => API.post("/tasks", data);
 
 export const updateTask = (id, status) => API.patch(`/tasks/${id}`, { status });
+
+export const createClient = (data) => API.post("/addClients", data);
